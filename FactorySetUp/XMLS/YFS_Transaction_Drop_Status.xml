@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_Transaction_Drop_StatusList>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.10"
+        TransactionDropStatusKey="20210714090117393205" TransactionKey="20210714090057393197"/>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.20"
+        TransactionDropStatusKey="20210714095119393225" TransactionKey="20210714095018393215"/>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.30"
+        TransactionDropStatusKey="20210714095328393239" TransactionKey="20210714095221393227"/>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.40"
+        TransactionDropStatusKey="20210714095546393253" TransactionKey="20210714095455393241"/>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.80"
+        TransactionDropStatusKey="20210714095734393263" TransactionKey="20210714095712393255"/>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.85"
+        TransactionDropStatusKey="20210714095842393273" TransactionKey="20210714095822393265"/>
+    <TransactionDropStatus IsMandatory=""
+        ProcessTypeKey="ORDER_DELIVERY" Status="1400.ex.99"
+        TransactionDropStatusKey="20210714100059393287" TransactionKey="20210714100035393279"/>
+</YFS_Transaction_Drop_StatusList>

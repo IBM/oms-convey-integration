@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_ServerList>
+    <Server MonitorStartTime="1" ServerKey="20210707152812389260"
+        ServerName="IBMDeliveryIntegration" ServerType="00"
+        Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+</YFS_ServerList>

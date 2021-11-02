@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_FlowList>
+    <Flow FlowGroupName="IBM Delivery Integration"
+        FlowKey="20210707130239388722"
+        FlowName="IBMExternalDeliveryEvent" FlowType="00"
+        GraphUIKey="20210707130240388725" IsOutGoing="Y"
+        IsPrintService="N" IsRealTime="N" OwnerKey="DEFAULT"
+        ProcessTypeKey="ORDER_DELIVERY" SystemDefined="N" TransportTypeKey="LOCAL"/>
+    <Flow FlowGroupName="IBM Delivery Integration"
+        FlowKey="20210707152258389256"
+        FlowName="ProcessExternalDeliveryEvent" FlowType="00"
+        GraphUIKey="20210707152259389259" IsOutGoing="N"
+        IsPrintService="N" IsRealTime="N" OwnerKey="DEFAULT"
+        ProcessTypeKey="ORDER_DELIVERY" SystemDefined="N" TransportTypeKey="GJMS"/>
+    <Flow FlowGroupName="IBM Delivery Integration"
+        FlowKey="20210708112919389593"
+        FlowName="SendShipmentForTracking" FlowType="00"
+        GraphUIKey="20210708112919389592" IsOutGoing="Y"
+        IsPrintService="N" IsRealTime="N" OwnerKey="DEFAULT"
+        ProcessTypeKey="ORDER_DELIVERY" SystemDefined="N" TransportTypeKey="LOCAL"/>
+    <Flow FlowGroupName="IBM Delivery Integration"
+        FlowKey="20210708113304389654"
+        FlowName="PublishShipmentDataService" FlowType="00"
+        GraphUIKey="20210708113304389653" IsOutGoing="N"
+        IsPrintService="N" IsRealTime="N" OwnerKey="DEFAULT"
+        ProcessTypeKey="ORDER_DELIVERY" SystemDefined="N" TransportTypeKey="GJMS"/>
+    <Flow FlowGroupName="IBM Delivery Integration"
+        FlowKey="20210708113533389666" FlowName="PublishShipmentDataAPI"
+        FlowType="00" GraphUIKey="20210708113533389665" IsOutGoing="Y"
+        IsPrintService="N" IsRealTime="N" OwnerKey="DEFAULT"
+        ProcessTypeKey="ORDER_DELIVERY" SystemDefined="N" TransportTypeKey="LOCAL"/>
+</YFS_FlowList>

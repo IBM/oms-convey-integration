@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_Event_ConditionList>
+    <EventCondition ActionKey="20210715135802396172"
+        ConditionKey="20210715124749396142"
+        EventConditionKey="20210715135939396196"
+        EventKey="PACK_CMPL_ON_SUCCESS" MoreActionsFlag="N"
+        OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
+    <EventCondition ActionKey="20210715135802396172" ConditionKey=""
+        EventConditionKey="20210715145938396802"
+        EventKey="GET_TRACKING_NO_SUCCESS" MoreActionsFlag="N"
+        OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
+</YFS_Event_ConditionList>

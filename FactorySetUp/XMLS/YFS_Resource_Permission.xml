@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_Resource_PermissionList>
+	<ResourcePermission ActivateFlag="Y" ReadOnlyFlag="N" ResourceKey="20210721135514406760" ResourcePermissionKey="20210721135514406762" UserKey="" UsergroupKey="SYSTEM"/>
+	<ResourcePermission ActivateFlag="Y" ReadOnlyFlag="N" ResourceKey="20210721141146406875" ResourcePermissionKey="20210721141146406877" UserKey="" UsergroupKey="SYSTEM"/>
+	<ResourcePermission ActivateFlag="Y" ReadOnlyFlag="N" ResourceKey="20210721141231406889" ResourcePermissionKey="20210721141231406891" UserKey="" UsergroupKey="SYSTEM"/>	
+
+	<ResourcePermission ActivateFlag="Y" ReadOnlyFlag="N" ResourceKey="20210721135514406760" ResourcePermissionKey="20210723135514406762" UserKey="" UsergroupKey="GUEST"/>
+</YFS_Resource_PermissionList>

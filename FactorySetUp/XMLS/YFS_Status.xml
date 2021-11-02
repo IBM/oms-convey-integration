@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_StatusList>
+    <Status
+        Description="The shipment has been scheduled but not yet picked up"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1300.ex.10"
+        StatusKey="20210714111441394267" StatusName="Delivery Scheduled" StatusType="USER"/>
+    <Status
+        Description="An appointment needs to be scheduled for the carrier to pick up the shipment"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1300.ex.20"
+        StatusKey="20210714111529394272"
+        StatusName="Carrier Pickup Appointment" StatusType="USER"/>
+    <Status Description="The shipment is in transit with the carrier"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.10"
+        StatusKey="20210714111625394277" StatusName="In Transit" StatusType="USER"/>
+    <Status Description="The shipment is out for delivery"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.20"
+        StatusKey="20210714111708394282" StatusName="Out For Delivery" StatusType="USER"/>
+    <Status Description="The shipment is returning to sender"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.30"
+        StatusKey="20210714111759394287"
+        StatusName="Returning To Sender" StatusType="USER"/>
+    <Status Description="The shipment is delivered to sender"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.40"
+        StatusKey="20210714111902394292"
+        StatusName="Delivered To Sender" StatusType="USER"/>
+    <Status Description="The shipment is undeliverable"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.80"
+        StatusKey="20210714112245394301" StatusName="Undeliverable" StatusType="USER"/>
+    <Status
+        Description="The shipment should be trackable but has not yet been successfully tracked, either because it is too new to track or because it has a data issue that prevents tracking, such as an invalid tracking number"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.85"
+        StatusKey="20210714112508394306" StatusName="Delivery Unknown" StatusType="USER"/>
+    <Status Description="The shipment has been canceled"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1400.ex.99"
+        StatusKey="20210714112620394311" StatusName="Delivery Cancelled" StatusType="USER"/>
+    <Status
+        Description="The shipment has been created in the external system after Packed in OMS"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1100.70.06.70.1"
+        StatusKey="20210714124404395758"
+        StatusName="Shipment Created In External" StatusType="USER"/>
+    <Status
+        Description="A price has been quoted from the shipment, but it has not been scheduled or picked up yet"
+        OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
+        RequiresCollaboration="" Status="1100.70.06.70.2"
+        StatusKey="20210715112655395973"
+        StatusName="Carrier Price Quoted" StatusType="USER"/>
+</YFS_StatusList>

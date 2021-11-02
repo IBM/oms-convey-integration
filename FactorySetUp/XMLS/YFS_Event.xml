@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_EventList>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714090057393200" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714090057393197" Version=""/>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714095018393218" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714095018393215" Version=""/>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714095221393230" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714095221393227" Version=""/>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714095455393244" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714095455393241" Version=""/>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714095712393258" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714095712393255" Version=""/>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714095822393268" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714095822393265" Version=""/>
+    <Event ActionKey="" ActiveFlag="N" EnterpriseKey=""
+        EventKey="20210714100035393282" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="" ExtendEnterpriseFlag="1"
+        ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="20210714100035393279" Version=""/>
+    <Event ActionKey="" ActiveFlag="Y" EnterpriseKey="DEFAULT"
+        EventKey="PACK_CMPL_ON_SUCCESS" EventName="On Success"
+        Eventid="ON_SUCCESS" ExceptionType="ON_SUCCESS"
+        ExtendEnterpriseFlag="" ExtendSupplierFlag="" ShipnodeKey=""
+        TransactionKey="PACK_SHIPMENT_COMPLETE" Version=""/>
+</YFS_EventList>

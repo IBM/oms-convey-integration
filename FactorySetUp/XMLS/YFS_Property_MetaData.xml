@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_Property_MetaDataList>
+    <PropertyMetadata
+        BasePropertyName="yfs.convey.integration.providerurl"
+        Category="yfs" DataType="String"
+        Description="convey integration providerurl" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210715113853395987" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+    <PropertyMetadata BasePropertyName="yfs.convey.integration.qcf"
+        Category="yfs" DataType="String"
+        Description="convey integration qcf" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210715113913395992" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+    <PropertyMetadata
+        BasePropertyName="yfs.convey.integration.event.onsuccess.queue"
+        Category="yfs" DataType="String"
+        Description="convey integration queue" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210715114231396062" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+    <PropertyMetadata
+        BasePropertyName="yfs.convey.integration.event.external.queue"
+        Category="yfs" DataType="String"
+        Description="convey integration queue" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210715114326396067" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+    <PropertyMetadata
+        BasePropertyName="yfs.convey.integration.publish.url"
+        Category="yfs" DataType="String"
+        Description="convey integration queue" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210715114440396072" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+    <PropertyMetadata
+        BasePropertyName="yfs.convey.integration.publish.auth.key"
+        Category="yfs" DataType="String"
+        Description="convey integration queue" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210715114536396077" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+    <PropertyMetadata
+        BasePropertyName="yfs.convey.integration.pvft.tracking.number.last.used"
+        Category="yfs" DataType="String"
+        Description="convey integration carrier pvft tracking number last used" JvmType="APPSERVER"
+        Modifiable="Y" ModifiableAtRuntime="Y"
+        PropertyMetadataKey="20210723114536396077" PropertyType="CUSTOM"
+        Scope="GLOBAL" ServerOverride="N" UserOverride="N"/>
+</YFS_Property_MetaDataList>

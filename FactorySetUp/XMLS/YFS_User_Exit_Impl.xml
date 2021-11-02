@@ -1,0 +1,3 @@
+<YFS_User_Exit_ImplList>
+	<UserExitImpl UserExitKey="YCSUE00017" OrgKey="DEFAULT" JavaClassName="com.ibm.convey.integration.demo.ueimpl.IBMDemoShipCartonUEImpl" />
+</YFS_User_Exit_ImplList>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task Class="DoNothingMigrator"
+    Description="Installation of Factory Setup" When="AfterChildren">
+    <TaskInfo Completed="N"/>
+    <ChildTasks>
+        <Task Class="XMLMigrator" Description="FC Install" When="First">
+            <TaskInfo>
+                <EntityList>
+					<Entity AbortOnError="N" Class="YFS_Status_Modification"
+						CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+						ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Status_Modification.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_User_Exit_Impl"
+                        CommitCount="50" Completed="N" NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_User_Exit_Impl.xml" />
+                    <Entity AbortOnError="N" Class="YFS_Scac_Adapter_Support"
+                        CommitCount="50" Completed="N" NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_SCAC_ADAPTER_SUPPORT.xml" />
+                   <Entity AbortOnError="N" Class="YFS_Flow"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Flow.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_SubFlow"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_SubFlow.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Server"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Server.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Action"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Action.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Event"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Event.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Event_Condition"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Event_Condition.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Graph_UI"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Graph_UI.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Status"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Status.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Transaction"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Transaction.xml"/>
+                    <Entity AbortOnError="N"
+                        Class="YFS_Transaction_Drop_Status"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Transaction_Drop_Status.xml"/>
+                    <Entity AbortOnError="N"
+                        Class="YFS_Transaction_Pickup_Status"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Transaction_Pickup_Status.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Invoked_Flows"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Invoked_Flows.xml"/>
+					<Entity AbortOnError="N"
+                        Class="YFS_Property_MetaData" CommitCount="50"
+                        Completed="N" NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Property_MetaData.xml"/>
+                    <Entity AbortOnError="N" Class="YFS_Property"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Property.xml"/>
+					<Entity AbortOnError="N" Class="YFS_Condition"
+                        CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Condition.xml"/>
+					<Entity AbortOnError="N" Class="YFS_Resource"
+						CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+                        ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Resource.xml"/>
+					<Entity AbortOnError="N" Class="YFS_Resource_Permission"
+						CommitCount="50" Completed="N"
+                        NumRecordsProcessed="0"
+						ResetEntityAttributes="Y" TruncateTable="N" XMLFile="YFS_Resource_Permission.xml"/>
+                </EntityList>
+            </TaskInfo>
+        </Task>
+    </ChildTasks>
+</Task>

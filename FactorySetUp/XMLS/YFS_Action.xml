@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_ActionList>
+    <Action ActionKey="20210715135802396172"
+        Actioncode="PACK_SHIP_ON_SUCCESS"
+        Actionname="Send Shipment On Pack Complete" Actiontype="USER"
+        ComExtensionFlag="" ComExtensionProgid="" DbExtensionFlag=""
+        DbExtensionSpName="" EmailAddress="" EmailFlag=""
+        EmailTemplateFile="" ExecuteFlag="" ExecuteProgram=""
+        ExtendableCode="" FaxFlag="" FaxStylesheet=""
+        GroupId="Delivery Track Integration" HttpFlag="" HttpUrl=""
+        InboxFlag="" InboxListTemplate="" InboxTemplate=""
+        InboxUserKey="" InvokeFlowsFlag="Y" JavaExtensionFlag="N"
+        JavaExtensionProgid="" OwnerKey="DEFAULT" OwnerType=""
+        PublishFlag="" PublishReceivers="" QueueKey="" RealtimeFlag="Y"
+        ReferenceKey="" ReferenceType=""/>
+</YFS_ActionList>

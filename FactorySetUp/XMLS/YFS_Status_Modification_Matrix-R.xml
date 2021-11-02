@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_Status_ModificationList>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.99"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.85"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.80"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.40"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.30"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.20"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.10"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1300.ex.20"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1300.ex.10"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1100.70.06.70.2"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1100.70.06.70.1"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1300.ex.10"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1300.ex.20"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.10"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.20"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.30"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.40"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.80"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.85"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1400.ex.99"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1500"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1100.70.06.70.2"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+    <StatusModification AccessGroupId="" AllowValue="01"
+        OrganizationCode="Matrix-R" Status="1100.70.06.70.1"
+        StatusModGroupKey="Matrix-R_OD"
+        StatusModificationTypeKey="SHIPMENT_MOD_10" SystemDefinedCode="N"/>
+</YFS_Status_ModificationList>
