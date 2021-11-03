@@ -1,6 +1,6 @@
 # IBM Sterling Order Management Integration to Convey
 
-This document describes: 
+**Table of Contents:** 
 * [Overview](#overview)
 * [Prerequisites](#prerequisites)  
 * [Integration](#integration)  
