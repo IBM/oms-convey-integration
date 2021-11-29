@@ -10,7 +10,7 @@
   * [Tracking events](#tracking-events)  
   * [Sterling Order Management properties](#sterling-order-management-properties)  
   * [Example for event tracking](#example-for-event-tracking)
-  * [Transaction events](transaction-events)
+  * [Transaction events](#transaction-events)
   * [API / Service](#api--service)  
   * [IBM services](#ibm-services)
 * [Deploying code](#deploying-code)  
