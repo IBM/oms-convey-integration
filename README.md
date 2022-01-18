@@ -1,6 +1,6 @@
 # IBM Sterling Order Management Integration to Convey
 
-**Table of Contents:** 
+This document describes: 
 * [Overview](#overview)
 * [Prerequisites](#prerequisites)  
 * [Integration](#integration)  
@@ -10,14 +10,22 @@
   * [Tracking events](#tracking-events)  
   * [Sterling Order Management properties](#sterling-order-management-properties)  
   * [Example for event tracking](#example-for-event-tracking)
-  * [Transaction events](#transaction-events)
+  * [Transaction events](transaction-events)
   * [API / Service](#api--service)  
   * [IBM services](#ibm-services)
 * [Deploying code](#deploying-code)  
-* [Configuring and testing Sterling Order Management](#configuring-and-testing-sterling-order-management)
-* [Configuring User Exit implementation for IBM Sterling Store Engagement](configuring-user-exit-implementation-for-ibm-sterling-store-engagement)
-* [Testing Convey integration](testing-convey-integration)
-* [Exposing fields in Order Hub](#exposing-fields-in-order-hub)
+* [Configuring Sterling Order Management](#configuring-sterling-order-management)
+  * [Configuring User Exit implementation for IBM Sterling Store Engagement](configuring-user-exit-implementation-for-ibm-sterling-store-engagement)
+  * [Configuring Carriers](#configuring-carriers)
+  * [Configuring Extended Status](#configuring-extended-status)
+  * [Configuring Transactions](#configuring-transactions)
+  * [Configuring Services](#configuring-services)
+  * [Configuring Conditions](#configuring-conditions)
+  * [Configuring Actions](#configuring-action)
+  * [Configuring Events](#configuring-events)
+  * [Configuring Properties](#configuring-properties)
+* [Testing Convey integration](#testing-convey-integration)
+* [Extending Order Hub to add new fields](#extending-order-hub-to-add-new-fields)
 
 ## Overview
 IBM Sterling Order Management integrates with Convey to provide the real-time shipment visibility with detailed in-transit status of the orders. This is a starter integration asset and is not a final integration.  Take the sample code "as is, where is, with all faults" and no representations or warranties are made or responsibilities assumed by provider.
@@ -57,7 +65,7 @@ Sales order fulfillment process:
 7. A Fulfillment Manager can use Order Hub to verify the order status for the last mile (stamped on the shipment container). A Fulfillment Manager can also log into the Convey user interface to get more details for all order shipments and statuses. 
 
 ## Order process
-When an Order in IBM Sterling Order Management is released to a store for shipping or delivery fulfillment methods, it goes through a process of pick/pack activities. After the packing is complete, a print label is generated. The assigned carrier confirms the shipping and a manifest is created. WHen the shipment is confirmed, the carrier picks up the packages.
+When an Order in IBM Sterling Order Management is released to a store for shipping or delivery fulfillment methods, it goes through a process of pick/pack activities. After the packing is complete, a print label is generated. The assigned carrier confirms the shipping and a manifest is created. When the shipment is confirmed, the carrier picks up the packages.
 
 To track the packages in an external system, Sterling Order Management can publish the order data to the external system when shipment is packed and tracking number from the carrier is stamped on the shipment. The data is transferred through a REST API call by using the `createOrder` API that is provided by the external system.
 
@@ -359,7 +367,7 @@ You can use the following table as a reference to the Transaction ID and statuse
 
 
 ## IBM services 
-The folllowing 5 custom services are included in the factory installation of this package.  
+ You must create the following custom services for the integration to work. Refer to the IBM Sterling Order Management documentation for defining new [service](https://www.ibm.com/docs/en/order-management?topic=pipelines-defining-service-definitions)  
 
 1. IBMExternalDeliveryEvent - This service calls the IBMExternalDeliveryEvent.acceptEvent() API and places a message in a JMS queue.  
 2. ProcessExternalDeliveryEvent - This service processes data from a JMS queue and calls the IBMExternalDeliveryEvent.processEvent() API.  
@@ -367,22 +375,255 @@ The folllowing 5 custom services are included in the factory installation of thi
 4. PublishShipmentDataService - This service reads new messages on the JMS queue when packaging is successful and calls the PublishShipmentDataAPI service.
 5. PublishShipmentDataAPI - This service retrieves the shipment details and calls IBMExternalDeliveryEvent.publishData().  
   
-## Deploying code  
-You must first download the sample code in this repository and deploy it to your development toolkit. If you have existing customizations, refer to the IBM Sterling Order Management documentation for merging your changes. The high-level deployment steps include:
+## Deploying code 
+You must first download the sample code from this Git project using the "Download Zip" option of GitHub. Compile the java source code from the src folder and create a .jar file. Deploy the .jar file as a customization to your IBM Sterling Order Management environments. If there are existing customizations, you must merge the sample code with the existing customization before deploying the code. Refer to the IBM Sterling Order Management documentation for details about [managing customization](https://www.ibm.com/docs/en/order-management?topic=management-managing-customizations).
+You must copy the files folder into the  <runtime_sandbox>/extensions folder and update the resources.jar. For more details about updating the resources.jar refer to [building resource extensions](https://www.ibm.com/docs/en/order-management?topic=environment-building-resource-extensions) in IBM Sterling Order Management documentation.
 
-1. Download the code from this demo repository. 
-2. FTP the Convey extension code to a folder on your Sterling Order Management server - /opt/Sterling/devtoolkit_docker/convey/.  
-3. SSH to your server  
-4. `cd /opt/Sterling/devtoolkit_docker/convey/`  
-5. Deploy the code `./om-compose.sh update-extn /opt/Sterling/devtoolkit_docker/convey/extensions_convey.jar`.
+## Configuring Sterling Order Management
+You must complete the following configurations to enable the integration. You can use the Configuration Deployment Tool to deploy your configurations from your Sterling Order Management master configuration to other environments. Refer to the IBM Sterling Order Management documentation for details about mananaging [configuration deployment tool](https://www.ibm.com/docs/en/order-management?topic=management-managing-configuration-deployment-tool-cdt)
 
-## Configuring and testing Sterling Order Management  
-You must configure carriers in the system for the IBM Sterling Order Management and Convey integration to work successfully. Refer to the IBM Sterling Order Management documentation for details about the [carrier setup](https://www.ibm.com/docs/en/order-management?topic=attributes-defining-carrier-services).   
+### Configuring Carriers  
+You must configure carriers in the system for the IBM Sterling Order Management and Convey integration to work successfully. Refer to the IBM Sterling Order Management documentation for details about the [carrier setup](https://www.ibm.com/docs/en/order-management?topic=attributes-defining-carrier-services). You must also setup the Carrier Adaptor for new carriers.   
 
 ### Configuring User Exit implementation for IBM Sterling Store Engagement
-Refer to the IBM Sterling Order Management documentation for details about configuring the tracking number generation option for the IBM Sterling Store Engagement application. This integration uses the IBMDemoShipCartonUEImpl single store exit to generate tracking numbers.   
+Refer to the IBM Sterling Order Management documentation for details about configuring the tracking number generation option for the IBM Sterling Store Engagement application. This integration uses the IBMDemoShipCartonUEImpl single store exit to generate tracking numbers. 
 
-### Testing Convey integration  
+### Configuring extended status 
+You must create the following extended statuses. Refer to the IBM Sterling Order Management documentation for details about configuring [extended status] (https://www.ibm.com/docs/en/order-management?topic=statuses-creating-extended-status).
+
+| ProcessType | Base Status | Status | StatusName |
+| ------------- |  ------------- |   ------------- | ------------- |  
+| ORDER_DELIVERY | 1300(Shipment Packed) | 1300.ex.10 | Delivery Scheduled |
+| ORDER_DELIVERY | 1300(Shipment Packed) | 1300.ex.20 | Carrier Pickup Appointment |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.10 | In Transit |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.20 | Out For Delivery |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.30 | Returning To Sender |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.40 | Delivered To Sender |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.80 | Undeliverable |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.85 | Delivery Unknown |
+| ORDER_DELIVERY | 1400(Shipment Shipped) | 1400.ex.99 | Delivery Cancelled |
+| ORDER_DELIVERY | 1100.70.06.70(Shipment Being Packed) | 1100.70.06.70.1 | Shipment Created In External |
+| ORDER_DELIVERY | 1100.70.06.70(Shipment Being Packed) | 1100.70.06.70.2 | Carrier Price Quoted |
+
+
+### Configuring Transactions 
+You must create the following extended transactions derived from abstract transaction. Refer to the IBM Sterling OMS Management documentation for details about creating [extended transactions] (https://www.ibm.com/docs/en/order-management?topic=dt-creating-extended-transaction-that-is-derived-from-abstract-transaction).
+
+| Transaction Type | Transaction ID | Transaction Name | Pickup Status | DropStatus |
+| ------------- |  ------------- |   ------------- | ------------- | ------------- |
+| Derived from Change Shipment status abstract Transaction | SHIPMENT_IN_TRANSIT.0001.ex | Shipment In Transit | 1400(Shipment Shipped) | 1400.ex.10(In Transit) |
+| Derived from Change Shipment status abstract Transaction | SHIPMENT_FOR_DELIVERY.0001.ex | Shipment Out For Delivery | 1400(Shipment Shipped),1400.ex.10(In Transit) | 1400.ex.20(Out For Delivery) |
+| Derived from Change Shipment status abstract Transaction | SHIP_RETURNING_TO_SENDER.0001.ex | Shipment Returning To Sender | 1400(Shipment Shipped),1400.ex.10(In Transit),1400.ex.20(Out For Delivery) | 1400.ex.30(Returning To Sender) |
+| Derived from Change Shipment status abstract Transaction | SHIP_DELIVERED_TO_SENDER.0001.ex | Shipment Delivered To Sender | 1400(Shipment Shipped),1400.ex.10(In Transit),1400.ex.20(Out For Delivery) | 1400.ex.40(Delivered To Sender) |
+| Derived from Change Shipment status abstract Transaction | SHIPMENT_UNDELIVERABLE.0001.ex | Shipment Undeliverable | 1400(Shipment Shipped),1400.ex.10(In Transit),1400.ex.20(Out For Delivery) | 1400.ex.80(Undeliverable) |
+| Derived from Change Shipment status abstract Transaction | SHIP_DELIVERY_UNKNOWN.0001.ex | Shipment Delivery Unknown | 1400(Shipment Shipped),1400.ex.10(In Transit),1400.ex.20(Out For Delivery) | 1400.ex.85(Delivery Unknown) |
+| Derived from Change Shipment status abstract Transaction | SHIP_DELIVERY_CANCELLED.0001.ex | Shipment Delivery Cancelled | 1400(Shipment Shipped),1400.ex.10(In Transit),1400.ex.20(Out For Delivery) | 1400.ex.99(Delivery Cancelled) |
+
+### Configuring Services
+Refer to the IBM Sterling Order Management documentation for details about configuring Services. Create services with the following details.
+1. Create the IBMExternalDeliveryEvent service with the following details.
+
+| Service Name | Service Group name | Asyn/sync mode |
+| ------------- | ------------- | ------------- |
+| IBMExternalDeliveryEvent | IBM Delivery Integration | Synchronous Mode |
+
+Components of IBMExternalDeliveryEvent service
+![image](https://media.github.ibm.com/user/352820/files/504cad00-57a7-11ec-8b06-56a1d95fc5a2)
+1.1. API Component
+ 
+| Type | API Name | Class Name | Method Name |
+| ------------- | ------------- | ------------- | ------------- |
+| Extented Api | acceptEvent | com.ibm.convey.integration.demo.business.IBMExternalDeliveryEventService | acceptEvent |
+
+1.2. JMS Queue Component
+
+| Name | Value |
+| ------------- | ------------- |
+| Destination Name | ${yfs.convey.integration.event.external.queue} |
+| Time To Live(seconds) | 0 |
+| Provider URL | ${yfs.convey.integration.providerurl} |
+| Initial Context Factory | File |
+| Connection Factory | ${yfs.convey.integration.qcf} |
+| Persistent/Non Persistent | Persistent |
+| Commit Message | Check |
+
+2. Create the ProcessExternalDeliveryEvent service with the following details.
+
+| Service Name | Service Group name | Asyn/sync mode |
+| ------------- | ------------- | ------------- |
+| ProcessExternalDeliveryEvent | IBM Delivery Integration | Asynchronous Mode |
+
+Components of ProcessExternalDeliveryEvent service
+![image](https://media.github.ibm.com/user/352820/files/90f8f600-57a8-11ec-837e-f60565b09122)
+
+2.1. JMS Queue Component 
+
+| Name | Value |
+| ------------- | ------------- |
+| Sub Service Name | ProcessExternalDeliveryEvent |
+| Destination Name | ${yfs.convey.integration.event.external.queue} |
+| Provider URL | ${yfs.convey.integration.providerurl} |
+| Initial Context Factory | File |
+| Connection Factory | ${yfs.convey.integration.qcf} |
+| Transactional/Non Transactional | Transactional |
+| Initial Threads | 1 |
+
+Server tab
+Create an integration server with the IBMDeliveryIntegration name and select IBMDeliveryIntegration as the server.
+
+Exception tab
+
+| Name | Value |
+| ------------- | ------------- |
+| Alert Type | Delivery_Integration_Exception |
+| Alert Queue Name | DEFAULT |
+| Is Reprocessible | checked |
+
+2.2. API Component
+ 
+| Type | API Name | Class Name | Method Name |
+| ------------- | ------------- | ------------- | ------------- |
+| Extented Api | processEvent  | com.ibm.convey.integration.demo.business.IBMExternalDeliveryEventService | processEvent  |
+
+3. Create the PublishShipmentDataAPI service with the following details.
+
+
+| Service Name | Service Group name | Asyn/sync mode |
+| ------------- | ------------- | ------------- |
+| PublishShipmentDataAPI | IBM Delivery Integration | Synchronous Mode |
+
+Components of PublishShipmentDataAPI service
+![image](https://media.github.ibm.com/user/352820/files/dc130900-57a8-11ec-8f15-4bc7bd363cbf)
+
+
+3.1. API Component
+ 
+| Type | API Name | Class Name | Method Name |
+| ------------- | ------------- | ------------- | ------------- |
+| Standard Api | getShipmentDetails  |   |   |
+
+3.2. XSL Translator
+
+| Name | Value |
+| ------------- | ------------- |
+| XSL Name | template/service/xsl/TransformOrderXmlToExternalOrderJson.xsl |
+
+3.3. API Component
+ 
+| Type | API Name | Class Name | Method Name |
+| ------------- | ------------- | ------------- | ------------- |
+| Extented Api | publishData  | com.ibm.convey.integration.demo.business.IBMExternalDeliveryEventService | publishData  |
+
+4. Create the PublishShipmentDataService service with the following details.
+
+| Service Name | Service Group name | Asyn/sync mode |
+| ------------- | ------------- | ------------- |
+| PublishShipmentDataService | IBM Delivery Integration | Asynchronous Mode |
+
+Components of PublishShipmentDataService service
+![image](https://media.github.ibm.com/user/352820/files/ec2ae880-57a8-11ec-8050-cc9d31f5a023)
+
+
+4.1. JMS Queue Component 
+
+| Name | Value |
+| ------------- | ------------- |
+| Sub Service Name | PublishShipmentDataService |
+| Destination Name | ${yfs.convey.integration.event.onsuccess.queue} |
+| Provider URL | ${yfs.convey.integration.providerurl} |
+| Initial Context Factory | File |
+| Connection Factory | ${yfs.convey.integration.qcf} |
+| Transactional/Non Transactional | Transactional |
+| Initial Threads | 1 |
+
+Server tab
+Create an integration server with the IBMDeliveryIntegration name and select IBMDeliveryIntegration as the server.
+
+Exception tab
+
+| Name | Value |
+| ------------- | ------------- |
+| Alert Type | Delivery_Integration_Exception |
+| Alert Queue Name | DEFAULT |
+| Is Reprocessible | checked |
+
+4.2. API Component
+ 
+| Type | API Name | Class Name | Method Name |
+| ------------- | ------------- | ------------- | ------------- |
+| Extented Api | InvokeService  | com.yantra.ibmjda.business.integration.IBMJDAInvokeIntegrationService | InvokeService  |
+
+5. Create the SendShipmentForTracking service with the following details.
+
+| Service Name | Service Group name | Asyn/sync mode |
+| ------------- | ------------- | ------------- |
+| SendShipmentForTracking | IBM Delivery Integration | Synchronous Mode |
+
+Components of SendShipmentForTracking service
+![image](https://media.github.ibm.com/user/352820/files/0795f380-57a9-11ec-96b4-fbd79b91a4ff)
+
+
+5.1. JMS Queue Component
+
+| Name | Value |
+| ------------- | ------------- |
+| Destination Name | ${yfs.convey.integration.event.onsuccess.queue} |
+| Time To Live(seconds) | 0 |
+| Provider URL | ${yfs.convey.integration.providerurl} |
+| Initial Context Factory | File |
+| Connection Factory | ${yfs.convey.integration.qcf} |
+| Persistent/Non Persistent | Persistent |
+| Commit Message | Check |
+
+### Configuring Conditions
+You must create the following condition. Refer to the IBM Sterling Order Management documentation for details about [configuring conditions] (https://www.ibm.com/docs/en/order-management?topic=conditions-creating-condition). 
+
+| ProcessTypeKey | ConditionName | ConditionID | ConditonGroup | ConditionType | ConditoinValue |
+| ------------- | ------------- |  ------------- |   ------------- | ------------- | ------------- |
+| ORDER_DELIVERY | Is Packed | Is Packed | Store | Static | Status Is '1300'
+
+
+### Configuring Action
+
+You must create the following action. Refer to the IBM Sterling Order Management documentation for details about [configuring actions] (https://www.ibm.com/docs/en/order-management?topic=node-defining-actions). 
+
+| Action Code | Action Name | Action Group |
+| ------------- | ------------- | ------------- | 
+| PACK_SHIP_ON_SUCCESS | Send Shipment On Pack Complete | Delivery Track Integration |
+
+Check Invoke following services as part of this action and include the following services.
+
+| Service name | Service Group |
+| ------------- | ------------- |
+| SendShipmentForTracking | IBM Delivery Integration |
+ 
+### Configuring Events
+
+Refer to the IBM Sterling Order Management documentation for details about configuring events. 
+
+1. Configure the ON_SUCCESS event of PACK_SHIPMENT_COMPLETE transaction under the ORDER_DELIVERY process type with the created condition and action.
+
+![image](https://media.github.ibm.com/user/352820/files/56438d80-57a9-11ec-8250-f40f4735081d)
+
+2.Configure the GET_TRACKING_NO_SUCCESS event of GET_TRACKING_NO_SUCCESS transaction under the Manifesting process type with the created action.
+
+![image](https://media.github.ibm.com/user/352820/files/652a4000-57a9-11ec-92dd-0d18b8e438ae)
+
+### Configuring Properties
+You must create the following properties. Refer to the IBM Sterling OMS Management documentation for details about creating properties from SMA. 
+
+| Category | Property Name | Property Type | Date Type | Modifiable | Modifiable at Runtime | User Overridable | Server Overridable | Description |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| yfs | yfs.convey.integration.providerurl | CUSTOM | String | Y | Y | N | N | convey integration providerurl |
+| yfs | yfs.convey.integration.qcf | CUSTOM | String | Y | Y | N | N | convey integration qcf |
+| yfs | yfs.convey.integration.event.onsuccess.queue | CUSTOM | String | Y | Y | N | N | convey integration queue |
+| yfs | yfs.convey.integration.event.external.queue | CUSTOM | String | Y | Y | N | N | convey integration queue |
+| yfs | yfs.convey.integration.publish.url | CUSTOM | String | Y | Y | N | N | convey integration queue |
+| yfs | yfs.convey.integration.publish.auth.key | CUSTOM | String | Y | Y | N | N | convey integration queue |
+| yfs | yfs.convey.integration.pvft.tracking.number.last.used | CUSTOM | String | Y | Y | N | N | convey integration carrier pvft tracking number last used |
+
+
+## Testing Convey integration  
 When a shipment is confirmed as packed, a message is sent to the `https://api.getconvey.com/order/v1/order` Convey API along with order details. To verify if the order is communicated to Convey, you can issue the corresponding GET method:
 
 ```   
@@ -422,11 +663,11 @@ curl --location --request POST 'https://<REPLACE_OMS_IP>:9443/smcfs/restapi/exec
 --data-raw '{ "event_type": "tracking", "tracking_number": "PT0000110056", "shipment_info": { "estimated_delivery_date": "2021-07-31", "status": "delivered" }, "event_details": { "description": "Your Shipment has been delivered", "local_date": "2021-07-31", "local_time": "10:50:01", "utc_offset": "Z", "revised_edd": "2021-07-31", "original_edd": "2021-07-27" } }'
 ```   
 
-# Exposing fields in Order Hub  
-The integration maps containers to Convey shipments. In Order Hub, the default screens are missing 3 fields under the Shipment containers field for orders. The three fields can be added as shown in the following diagram: 
+# Extending Order Hub to add new fields
+The integration maps IBM Sterling Order Management containers to Convey shipments. In Order Hub, by default, the following three fields are not available under the Shipment containers field for orders. You can add these fields as shown in the following image: 
 ![image](https://media.github.ibm.com/user/34759/files/71b5dd00-067f-11ec-87f1-6f446895d954)   
 
-View this page for more detailed instructions on [Order Hub field customization](https://www.ibm.com/docs/en/order-management?topic=api-adding-table-columns-existing-tables).  
+View this page for more detailed instructions about [Order Hub field customization](https://www.ibm.com/docs/en/order-management?topic=api-adding-table-columns-existing-tables).  
 
 1. Download the customization repository as referenced in the above link.  
 2. Create a `buc-table-config.json` file to specify the new fields for mapping. The file contains your delta changes.  
@@ -465,7 +706,7 @@ View this page for more detailed instructions on [Order Hub field customization]
 }
 ```  
 3. Pull the latest `getPage-templates.json` file from an Order Hub instance.  
-4. Customize the template in `getPage-templates.json`, which specifies what data to pull from Sterling Order Management. Add the three new fields to the `getShipmentList` template. Your file must contain only the template that you are updating and not all the templates and must contain similar entries as listed below:  
+4. Customize the template in `getPage-templates.json`, which specifies what data to pull from Sterling Order Management. Add the three new fields to the `getShipmentList` template. Your file must contain only the template that you are updating and not all the templates, and must contain similar entries as listed here:  
 ```  
 {
 "getShipmentList": {
@@ -631,4 +872,3 @@ View this page for more detailed instructions on [Order Hub field customization]
  ```  
  
 5. Upload the files to the Order Hub servers to view the changes immediately.  
-
